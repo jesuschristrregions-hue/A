@@ -21,8 +21,10 @@ class GalaxyWidget(QtWidgets.QWidget):
         # Layout: 3D view on left, controls on right
         layout = QtWidgets.QHBoxLayout(self)
         self.view = gl.GLViewWidget()
-        self.view.opts["distance"] = 80
         self.view.setBackgroundColor("k")
+        self.view.setCameraPosition(distance=80, azimuth=45, elevation=20)
+        # enable left-drag rotation and mouse-wheel zoom
+        self.view.setMouseEnabled(x=True, y=True, zoom=True)
         layout.addWidget(self.view, 1)
 
         controls = QtWidgets.QWidget()
@@ -62,7 +64,9 @@ class GalaxyWidget(QtWidgets.QWidget):
             self.control_layout.addLayout(row)
             self.sliders[name] = slider
 
-        self.star_plot = gl.GLScatterPlotItem()
+        # white star field
+        self.star_plot = gl.GLScatterPlotItem(pxMode=False)
+        self.star_plot.setGLOptions("additive")
         self.view.addItem(self.star_plot)
         self.update_galaxy()
 
@@ -94,9 +98,9 @@ class GalaxyWidget(QtWidgets.QWidget):
         return np.vstack((x, y, z)).T
 
     def update_galaxy(self):
-        pos = self.generate_positions()
+        pos = self.generate_positions().astype(np.float32)
         self.star_plot.resetTransform()
-        self.star_plot.setData(pos=pos, color=(1, 1, 1, 0.8), size=1)
+        self.star_plot.setData(pos=pos, color=(1, 1, 1, 1), size=1.5)
 
     def rotate(self):
         speed = self.param("Rotation")

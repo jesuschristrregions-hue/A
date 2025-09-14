@@ -18,8 +18,9 @@ python galaxy_sim.py
 ```
 
 A window will open with a 3D view of the galaxy on the left and sliders on the
-right. Drag with the mouse to orbit the camera; use the mouse wheel to zoom.
-Adjust the sliders to regenerate the galaxy or change the rotation speed.
+right. White star particles orbit the center, and you can drag with the mouse
+to rotate the camera or use the mouse wheel to zoom. Adjust the sliders to
+regenerate the galaxy or change the rotation speed.
 
 ## Troubleshooting
 
