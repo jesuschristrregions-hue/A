@@ -23,8 +23,7 @@ class GalaxyWidget(QtWidgets.QWidget):
         self.view = gl.GLViewWidget()
         self.view.setBackgroundColor("k")
         self.view.setCameraPosition(distance=80, azimuth=45, elevation=20)
-        # enable left-drag rotation and mouse-wheel zoom
-        self.view.setMouseEnabled(x=True, y=True, zoom=True)
+        # GLViewWidget already allows mouse rotation and wheel zoom
         layout.addWidget(self.view, 1)
 
         controls = QtWidgets.QWidget()
