@@ -8,7 +8,7 @@ spiral arms, twist, spread, core radius, disk radius, and rotation speed.
 Install dependencies:
 
 ```bash
-pip install pyqt5 pyqtgraph numpy
+pip install pyqt5 pyqtgraph numpy pyopengl
 ```
 
 ## Run
@@ -27,3 +27,6 @@ If you encounter a `SyntaxError` referencing lines that begin with words like
 `index` or `diff`, you may have accidentally saved a Git patch instead of the
 Python source file. Download the raw `galaxy_sim.py` file or copy only the
 Python code.
+
+If the program raises `ModuleNotFoundError: No module named 'OpenGL'`, install
+the `PyOpenGL` package.

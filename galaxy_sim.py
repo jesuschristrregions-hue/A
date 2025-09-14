@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Interactive 3D spiral galaxy simulator with adjustable parameters."""
+"""Interactive 3D spiral galaxy simulator with adjustable parameters.
+
+Requires :mod:`PyQt5`, :mod:`pyqtgraph`, :mod:`numpy`, and :mod:`PyOpenGL`.
+"""
 
 import sys
 import numpy as np
