@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Omar Thing Local Data Builder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Omar Thing Local Data Builder</h1>
+        <p>
+          Load data once from the API, then store it locally. Import/export lets you
+          reuse the dataset without paying for extra requests.
+        </p>
+      </header>
+
+      <section class="card">
+        <h2>Fetch Once</h2>
+        <p class="muted">
+          API base:
+          <code
+            >https://api.omar-thing.site/?key=wu0Jy4kzJXm9dlgJ&amp;type=following&amp;username=</code
+          >
+        </p>
+        <label class="field">
+          <span>Username</span>
+          <input id="username" type="text" placeholder="maya_gpt" autocomplete="off" />
+        </label>
+        <div class="actions">
+          <button id="fetch-data">Fetch &amp; Save Locally</button>
+          <button id="load-local">Load Local Data</button>
+          <button id="clear-local" class="secondary">Clear Local Data</button>
+        </div>
+        <p id="status" class="status" aria-live="polite"></p>
+      </section>
+
+      <section class="card">
+        <h2>Import / Export</h2>
+        <div class="actions">
+          <label class="file-button">
+            Import JSON
+            <input id="import-file" type="file" accept="application/json" />
+          </label>
+          <button id="export-data" class="secondary">Export JSON</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Local Database Preview</h2>
+        <div class="preview-meta">
+          <span id="record-count">No data loaded.</span>
+          <span id="last-updated"></span>
+        </div>
+        <pre id="data-preview" class="preview"></pre>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
